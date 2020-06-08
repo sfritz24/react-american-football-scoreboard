@@ -27,7 +27,7 @@ function App() {
         <div className="topRow">
           <div className="home">
             <h2 className="home__name">Lions</h2>
-
+            
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
             <div className="home__score">{homeScore}</div>
           </div>
@@ -55,4 +55,63 @@ function App() {
   );
 }
 
-export default App;
+function Apps(){
+  const [homeScore, setHomeScore] = useState(0)
+  const [awayScore, setAwayScore] = useState(0)
+
+  function homeTouchDown (event){
+    setHomeScore(homeScore + 7)
+  }
+  function homeFieldGoal (event){
+    setHomeScore(homeScore + 3)
+  }
+  function awayTouchDown (event){
+    setAwayScore(awayScore + 7)
+  }
+  function awayFieldGoal (event){
+    setAwayScore(awayScore + 3)
+  }
+
+  function TopRow(){
+    return(
+      <div className="topRow">
+        <div className="home">
+          <h2 className="home__name">Packers</h2>
+          <div className="home__score">{homeScore}</div>
+        </div>
+        <div className="timer">00:03</div>
+        <div className="away">
+          <h2 className="away__name">Vikings</h2>
+          <div className="away__score">{awayScore}</div>
+        </div>
+      </div>
+    )
+  }
+
+  function Buttons(){
+    return (
+      <section className="buttons">
+        <div className="homeButtons">
+          <button onClick={homeTouchDown} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={homeFieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
+        </div>
+        <div className="awayButtons">
+          <button onClick={awayTouchDown} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={awayFieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <div className="container">
+      <section className="scoreboard">
+        <TopRow />
+        <BottomRow />
+      </section>
+      <Buttons />
+    </div>
+  )
+}
+
+export default Apps;

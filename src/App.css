@@ -33,11 +33,11 @@
 }
 
 .home {
-  background-color: #656565;
+  background-image: linear-gradient(to right, #203731, #FFB612, #203731);
 }
 
 .away {
-  background-color: #af750a;
+  background-image: linear-gradient(to right, #4F2683 , #FFC62F, #4F2683);
 }
 
 .home__name,
